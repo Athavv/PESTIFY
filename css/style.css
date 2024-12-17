@@ -1,11 +1,57 @@
-.container-fluid{
-    background-color: #e8ece4;
+/* Style global */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #dbe6d2; /* Couleur de fond générale */
+    color: #2b2b2b;
 }
 
-#green{
+.container-fluid {
+    background-color: #dbe6d2;
+}
+
+/* Sidebar */
+#sidebar {
+    background-color: #415d43;
+    color: #e8ece4;
+    min-height: 100vh;
+}
+
+#sidebar .nav-link {
+    color: #e8ece4;
+    padding: 10px 15px;
+    border-radius: 10px; /* Coins arrondis */
+    margin-bottom: 10px;
+    text-decoration: none;
+}
+
+#sidebar .nav-link:hover {
     background-color: #a8cca4;
+    color: #2b2b2b;
 }
 
-#sidebar{
-    background-color: #415D43;
+#sidebar .nav-link.active {
+    background-color: #a8cca4; /* Fond vert clair pour la page active */
+    color: #2b2b2b;
+    font-weight: bold;
+}
+
+#green {
+    background-color: #a8cca4; /* Fond des cartes vert clair */
+    color: #2b2b2b;
+    font-weight: bold;
+    border: none;
+}
+
+.rounded {
+    border-radius: 10px; /* Coins arrondis */
+}
+
+h3 {
+    font-weight: bold;
+    color: #2b2b2b;
+}
+
+/* Footer texte */
+.text-light {
+    font-size: 0.9rem;
 }
