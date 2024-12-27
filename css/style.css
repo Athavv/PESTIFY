@@ -1,17 +1,14 @@
-/* Style global */
+/* Style général */
 body {
     font-family: Arial, sans-serif;
-    background-color: #dbe6d2; /* Couleur de fond générale */
+    background-color: #dbe6d2; /* Fond global */
     color: #2b2b2b;
 }
 
-.container-fluid {
-    background-color: #dbe6d2;
-}
 
 /* Sidebar */
 #sidebar {
-    background-color: #415d43;
+    background-color: #415d43; /* Vert sombre */
     color: #e8ece4;
     min-height: 100vh;
 }
@@ -19,21 +16,109 @@ body {
 #sidebar .nav-link {
     color: #e8ece4;
     padding: 10px 15px;
-    border-radius: 10px; /* Coins arrondis */
+    border-radius: 10px;
     margin-bottom: 10px;
-    text-decoration: none;
 }
 
 #sidebar .nav-link:hover {
-    background-color: #a8cca4;
+    background-color: #A1CCA5; /* Vert clair */
     color: #2b2b2b;
 }
 
 #sidebar .nav-link.active {
-    background-color: #a8cca4; /* Fond vert clair pour la page active */
+    background-color: #A1CCA5; /* Couleur active */
     color: #2b2b2b;
     font-weight: bold;
 }
+
+/* Carte contenant les projets */
+#project-card {
+    background-color: #A1CCA5;
+    padding: 20px;
+    border-radius: 15px;
+    height: 100%;
+}
+
+/* Liste des projets */
+#project-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    overflow-y: auto;
+    max-height: 70vh;
+}
+
+#project-list .card {
+    width: 200px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #709373;
+    color: #2b2b2b;
+    border: none;
+    border-radius: 10px;
+}
+
+#project-list .card:hover {
+    background-color: #2b3c29;
+    color: #fff;
+}
+
+/* Carte contenant les options et le graphique */
+#options-graph-card {
+    background-color: #415D43;
+    color: #fff;
+    border-radius: 15px;
+    padding: 20px;
+}
+/* Options en colonne */
+#options-container {
+    display: flex;
+    flex-direction: column; /* Aligner en colonne */
+    gap: 10px;
+    width: 100%; /* Largeur fixe */
+    max-width: 300px; /* Largeur maximale pour éviter le redimensionnement */
+}
+
+/* Fixer la taille du conteneur des options */
+#options-container .card {
+    width: 100%; /* Éviter de dépasser la largeur fixée */
+    height: 100px; /* Taille fixe pour les options */
+    background-color: #709373;
+    color: #2b2b2b;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none;
+    border-radius: 10px;
+}
+
+#options-container .card:hover {
+    background-color: #A1CCA5;
+    color: white;
+}
+
+/* Agrandir la taille du graphique */
+#chart-container {
+    text-align: center;
+    width: 100%; /* S'adapte au conteneur parent */
+    max-width: 600px; /* Augmente la largeur maximale */
+    margin: 0 auto;
+}
+
+#sidebar img {
+    max-width: 100%;
+    height: auto;
+}
+
+@media (max-width: 768px) {
+    #sidebar img {
+        width: 50px; /* Taille réduite pour petits écrans */
+    }
+}
+
 
 #green {
     background-color: #a8cca4; /* Fond des cartes vert clair */
@@ -42,16 +127,41 @@ body {
     border: none;
 }
 
-.rounded {
-    border-radius: 10px; /* Coins arrondis */
+.fs-7 {
+    font-size: 0.85rem;
 }
 
-h3 {
-    font-weight: bold;
+#greeen {
+    background-color: #A1CCA5; /* Fond des cartes vert clair */
     color: #2b2b2b;
+    border: none;
 }
 
-/* Footer texte */
-.text-light {
-    font-size: 0.9rem;
+#project-list::-webkit-scrollbar {
+    width: 12px; /* Augmentez la largeur ici */
+}
+
+#project-list::-webkit-scrollbar-thumb {
+    background-color: #415d43; /* Couleur sombre */
+    border-radius: 10px;
+}
+
+#project-list::-webkit-scrollbar-track {
+    background-color: #e8ece4; /* Couleur claire */
+}
+.bg-dark-green {
+    background-color: #415D43; /* Fond vert sombre */
+    color: #e8ece4; /* Texte clair */
+    border-radius: 10px; /* Coins arrondis */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optionnel: ombre pour un effet 3D */
+    padding: 20px;
+}
+
+#options-container h5,
+#chart-title {
+    color: #e8ece4; /* Assurez un contraste suffisant pour les titres */
+}
+
+#chart-container {
+    text-align: center;
 }

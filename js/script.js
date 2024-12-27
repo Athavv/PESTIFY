@@ -1,64 +1,56 @@
-const chart = document.getElementById("graph1").getContext("2d");
+Papa.parse('http://localhost/pestify/fichier-methodes-controle-biologique.csv', {
+    download: true,
+    header: true,
+    dynamicTyping: true,
+    complete: function(results) {
+        csvData = results.data;
 
-const chart2 = document.getElementById("graph2").getContext("2d");
-
-
-let data = {
-    labels: ["Paris", "Lyon", "Marseille", "Nantes", "Toulon", "Toulouse", "Lille"],
-    datasets: [{
-        label:'Pluviométrie',
-        data: [35, 40, 10, 17, 19, 10, 39],
-        backgroundColor:['#fdebd0','#c0392b', '#f6ff16', '#15ff00', '#ff3fa4', '#b200ff', '#ffbf5f'],
-        borderColor: '#c0392b',
-        borderWidth: 1 
-    }, {
-        label:'Températures',
-        data: [8, 30, 35, 17, 11, 40, 2],
-        backgroundColor:['#fdebd0','#c0392b', '#f6ff16', '#15ff00', '#ff3fa4', '#b200ff', '#ffbf5f'],
-        borderColor: '#c0392b',
-        borderWidth: 1 
-    }]
-};
-
-
-const can1 = new Chart(chart, 
-    {
-    type:"bar",
-    data: data,
-    options: {
-        responsive: true,
-        scales: {
-            y: {
-                beginAtzero : true,
-            },
-
-            plugins:{
-                title: {
-                    display: true,
-                    title: 'Pluviométrie 2024'
-                }
-            }
-        }
+        // Préparer les graphiques pour Nom méthode et Famille méthode
+        afficherDonutUnique('Nom méthode ', 'Graphique des Noms Méthode');
+        afficherDonutUnique('Famille méthode ', 'Graphique des Familles Méthode');
     }
 });
 
-const can2 = new Chart(chart2, 
-    {
-    type:"line",
-    data: data,
-    options: {
-        responsive: true,
-        scales: {
-            y: {
-                beginAtzero : true,
-            },
+function afficherDonutUnique(colonne, titre) {
+    // Extraire les valeurs uniques
+    const valeursUniques = [...new Set(csvData.map(item => item[colonne]).filter(Boolean))];
 
-            plugins:{
-                title: {
-                    display: true,
-                    title: 'Pluviométrie 2024'
-                }
-            }
+    // Préparer les données pour le graphique
+    const labels = valeursUniques;
+    const values = Array(labels.length).fill(1); // Chaque valeur unique compte comme 1
+    const colors = labels.map(() => '#' + Math.floor(Math.random() * 16777215).toString(16)); // Couleurs aléatoires
+
+    // Ajouter un conteneur pour chaque graphique
+    const container = document.createElement('div');
+    container.style.marginBottom = '30px';
+
+    const chartTitle = document.createElement('h3');
+    chartTitle.style.color = 'white';
+    chartTitle.innerText = titre;
+
+    const canvas = document.createElement('canvas');
+    canvas.style.maxWidth = '600px';
+    container.appendChild(chartTitle);
+    container.appendChild(canvas);
+
+    document.body.appendChild(container);
+
+    // Afficher le graphique
+    const ctx = canvas.getContext('2d');
+    new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: labels,
+            datasets: [{
+                data: values,
+                backgroundColor: colors
+            }]
+        },
+        options: {
+            plugins: {
+                legend: { position: 'bottom', labels: { color: 'white' } }
+            },
+            responsive: true
         }
-    }
-});
+    });
+}

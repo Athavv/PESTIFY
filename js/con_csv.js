@@ -1,8 +1,9 @@
  // Charger le fichier CSV avec encodage UTF-8
- Papa.parse('http://localhost:8000/fichier-methodes-controle-biologique.csv', {
+ Papa.parse('http://localhost/pestify/fichier-methodes-controle-biologique.csv', {
     download: true,
     header: true, // Lire la première ligne comme les noms de colonnes
     dynamicTyping: true,  // Cela peut aider avec des types de données numériques
+    encoding: "UTF-8", // Force l'encodage UTF-8
     complete: function(results) {
         const data = results.data; // Récupérer toutes les données du CSV
         
@@ -20,7 +21,7 @@
         console.log("Colonnes dans le fichier CSV : ", headers);
 
         // Extraire les valeurs de la colonne "Nom de méthode"
-        const methods = data.map(item => item["Nom methode "]);
+        const methods = data.map(item => item["Nom méthode "]);
         console.log("Méthodes extraites : ", methods);
 
         // Vérifier si la colonne "Nom de méthode" existe
