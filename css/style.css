@@ -5,6 +5,23 @@ body {
     color: #2b2b2b;
 }
 
+@font-face {
+    font-family: 'Poppins';
+    src: url(../font/Poppins/Poppins-Regular.woff);
+}
+
+@font-face {
+    font-family: 'CartooNature';
+    src: url(../font/cartoo_nature/CartooNature.ttf);
+}
+
+span{
+    font-family: Poppins;
+}
+
+h1, h2, h3, h4, h5, p, .fs-6, .fs-3{
+    font-family: CartooNature;
+}
 
 /* Sidebar */
 #sidebar {
@@ -120,12 +137,7 @@ body {
 }
 
 
-#green {
-    background-color: #a8cca4; /* Fond des cartes vert clair */
-    color: #2b2b2b;
-    font-weight: bold;
-    border: none;
-}
+
 
 .fs-7 {
     font-size: 0.85rem;
@@ -165,3 +177,45 @@ body {
 #chart-container {
     text-align: center;
 }
+
+#green, #greeen {
+    font-weight: bold;
+    border: 3px solid #0000;
+    background: linear-gradient(#a8cca4, #476444) padding-box, linear-gradient(
+          var(--angle),
+          #44ac39,
+          #77ff68
+        ) border-box;
+    animation: 8s rotate linear infinite;
+  }
+  
+  @keyframes rotate {
+    to {
+      --angle: 360deg;
+    }
+  }
+  
+  @property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+  }
+  
+
+
+/* Centrer les cartes dans chaque colonne */
+.card2 {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Utilise toute la largeur de la colonne */
+    padding: 20px;
+}
+
+/* Assurez-vous que les titres et graphiques sont bien alignés */
+#title-project-1, #title-project-2, #chart-title-1, #chart-title-2 {
+    text-align: center;
+}
+
+
