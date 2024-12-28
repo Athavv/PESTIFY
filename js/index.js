@@ -5,7 +5,7 @@ const siteColors = [
     '#FFF2CC', '#9C9C9C', '#6B8E23', '#708090', '#E1A7A5'
 ];
 
-Papa.parse('http://localhost/pestify/fichier-methodes-controle-biologique.csv', {
+Papa.parse('./fichier-methodes-controle-biologique.csv', {
     download: true,
     header: true,
     complete: function(results) {

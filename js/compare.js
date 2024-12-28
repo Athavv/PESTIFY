@@ -6,7 +6,7 @@ const siteColors = [
 ];
 
 // Charger le fichier CSV et afficher les projets
-Papa.parse('http://localhost/pestify/fichier-methodes-controle-biologique.csv', {
+Papa.parse('./fichier-methodes-controle-biologique.csv', {
     download: true,
     header: true,
     dynamicTyping: true,
